@@ -17,9 +17,10 @@ public class EmployeeTest {
         String lastName = "Baggins";
         String description = "ring bearer";
         int jobYears = 1;
+        String email = "frodo.baggins@gmail.com";
 
         // Act
-        Employee employee = new Employee(firstName, lastName, description, jobYears);
+        Employee employee = new Employee(firstName, lastName, description, jobYears, email);
 
         // Assert
         assertNotNull(employee);
@@ -35,12 +36,13 @@ public class EmployeeTest {
         String lastName = "Baggins";
         String description = "ring bearer";
         int jobYears = 1;
+        String email = "frodo.baggins@gmail.com";
 
         String expectedMessage = "Invalid input";
 
         // Act
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            new Employee(firstName, lastName, description, jobYears);
+            new Employee(firstName, lastName, description, jobYears, email);
         });
 
         // Assert
@@ -57,12 +59,13 @@ public class EmployeeTest {
         String lastName = "";
         String description = "ring bearer";
         int jobYears = 1;
+        String email = "frodo.baggins@gmail.com";
 
         String expectedMessage = "Invalid input";
 
         // Act
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            new Employee(firstName, lastName, description, jobYears);
+            new Employee(firstName, lastName, description, jobYears, email);
         });
 
         // Assert
@@ -79,12 +82,13 @@ public class EmployeeTest {
         String lastName = "Baggins";
         String description = "";
         int jobYears = 1;
+        String email = "frodo.baggins@gmail.com";
 
         String expectedMessage = "Invalid input";
 
         // Act
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            new Employee(firstName, lastName, description, jobYears);
+            new Employee(firstName, lastName, description, jobYears, email);
         });
 
         // Assert
@@ -101,12 +105,36 @@ public class EmployeeTest {
         String lastName = "Baggins";
         String description = "ring bearer";
         int jobYears = -1;
+        String email = "frodo.baggins@gmail.com";
 
         String expectedMessage = "Invalid input";
 
         // Act
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            new Employee(firstName, lastName, description, jobYears);
+            new Employee(firstName, lastName, description, jobYears, email);
+        });
+
+        // Assert
+        assertEquals(expectedMessage, exception.getMessage());
+    }
+
+    /**
+     * Test that an invalid employee object with an empty email throws an exception
+     */
+    @Test
+    public void testInvalidEmployeeObjectWithEmptyEmail_thenThrowsException() {
+        // Arrange
+        String firstName = "Frodo";
+        String lastName = "Baggins";
+        String description = "ring bearer";
+        int jobYears = -1;
+        String email = "";
+
+        String expectedMessage = "Invalid input";
+
+        // Act
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            new Employee(firstName, lastName, description, jobYears, email);
         });
 
         // Assert
@@ -123,12 +151,14 @@ public class EmployeeTest {
         String lastName = "Baggins";
         String description = "ring bearer";
         int jobYears = 1;
+        String email = "frodo.baggins@gmail.com";
+
 
         String expectedMessage = "Invalid input";
 
         // Act
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            new Employee(firstName, lastName, description, jobYears);
+            new Employee(firstName, lastName, description, jobYears, email);
         });
 
         // Assert
@@ -145,12 +175,13 @@ public class EmployeeTest {
         String lastName = null;
         String description = "ring bearer";
         int jobYears = 1;
+        String email = "frodo.baggins@gmail.com";
 
         String expectedMessage = "Invalid input";
 
         // Act
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            new Employee(firstName, lastName, description, jobYears);
+            new Employee(firstName, lastName, description, jobYears, email);
         });
 
         // Assert
@@ -167,12 +198,36 @@ public class EmployeeTest {
         String lastName = "Baggins";
         String description = null;
         int jobYears = 1;
+        String email = "frodo.baggins@gmail.com";
 
         String expectedMessage = "Invalid input";
 
         // Act
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            new Employee(firstName, lastName, description, jobYears);
+            new Employee(firstName, lastName, description, jobYears, email);
+        });
+
+        // Assert
+        assertEquals(expectedMessage, exception.getMessage());
+    }
+
+    /**
+     * Test that an invalid employee object with a null email throws an exception
+     */
+    @Test
+    public void testInvalidEmployeeObjectWithNullEmail_thenThrowsException() {
+        // Arrange
+        String firstName = "Frodo";
+        String lastName = "Baggins";
+        String description = "ring bearer";
+        int jobYears = 1;
+        String email = null;
+
+        String expectedMessage = "Invalid input";
+
+        // Act
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            new Employee(firstName, lastName, description, jobYears, email);
         });
 
         // Assert
