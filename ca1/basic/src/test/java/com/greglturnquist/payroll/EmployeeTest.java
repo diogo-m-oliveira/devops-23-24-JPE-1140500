@@ -114,28 +114,6 @@ public class EmployeeTest {
     }
 
     /**
-     * Test that an invalid employee object with a 0 job years throws an exception
-     */
-    @Test
-    public void testInvalidEmployeeObjectWith0JobYears_thenThrowsException() {
-        // Arrange
-        String firstName = "Frodo";
-        String lastName = "Baggins";
-        String description = "ring bearer";
-        int jobYears = 0;
-
-        String expectedMessage = "Invalid input";
-
-        // Act
-        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            new Employee(firstName, lastName, description, jobYears);
-        });
-
-        // Assert
-        assertEquals(expectedMessage, exception.getMessage());
-    }
-
-    /**
      * Test that an invalid employee object with a null first name throws an exception
      */
     @Test

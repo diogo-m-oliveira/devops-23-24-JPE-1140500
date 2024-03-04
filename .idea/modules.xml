@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/devops-23-24-JPE-1140500.iml" filepath="$PROJECT_DIR$/.idea/devops-23-24-JPE-1140500.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ca1/basic/react-and-spring-data-rest-basic.iml" filepath="$PROJECT_DIR$/ca1/basic/react-and-spring-data-rest-basic.iml" />
     </modules>
   </component>
 </project>
