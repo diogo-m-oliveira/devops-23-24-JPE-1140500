@@ -142,6 +142,29 @@ public class EmployeeTest {
     }
 
     /**
+     * Test that an invalid employee object with an invalid email throws an exception
+     */
+    @Test
+    public void testInvalidEmployeeObjectWithInvalidEmail_thenThrowsException() {
+        // Arrange
+        String firstName = "Frodo";
+        String lastName = "Baggins";
+        String description = "ring bearer";
+        int jobYears = 2;
+        String email = "frodo.bagginsgmail.com";
+
+        String expectedMessage = "Invalid email format";
+
+        // Act
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            new Employee(firstName, lastName, description, jobYears, email);
+        });
+
+        // Assert
+        assertEquals(expectedMessage, exception.getMessage());
+    }
+
+    /**
      * Test that an invalid employee object with a null first name throws an exception
      */
     @Test

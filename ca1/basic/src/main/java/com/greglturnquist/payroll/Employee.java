@@ -16,6 +16,8 @@
 package com.greglturnquist.payroll;
 
 import java.util.Objects;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -43,14 +45,11 @@ public class Employee {
 	private Employee() {}
 
 	public Employee(String firstName, String lastName, String description, int jobYears, String email){
-		if (firstName == null || firstName.isEmpty() || lastName == null || lastName.isEmpty() ||
-				description == null || description.isEmpty() || jobYears < 0 || email == null || email.isEmpty())
-			throw new IllegalArgumentException("Invalid input");
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.description = description;
-		this.jobYears = jobYears;
-		this.email = email;
+		setFirstName(firstName);
+		setLastName(lastName);
+		setDescription(description);
+		setJobYears(jobYears);
+		setEmail(email);
 	}
 
 	@Override
@@ -86,6 +85,8 @@ public class Employee {
 	}
 
 	public void setFirstName(String firstName) {
+		if (firstName == null || firstName.isEmpty())
+			throw new IllegalArgumentException("Invalid input");
 		this.firstName = firstName;
 	}
 
@@ -94,6 +95,8 @@ public class Employee {
 	}
 
 	public void setLastName(String lastName) {
+		if (lastName == null || lastName.isEmpty())
+			throw new IllegalArgumentException("Invalid input");
 		this.lastName = lastName;
 	}
 
@@ -102,6 +105,8 @@ public class Employee {
 	}
 
 	public void setDescription(String description) {
+		if (description == null || description.isEmpty())
+			throw new IllegalArgumentException("Invalid input");
 		this.description = description;
 	}
 
@@ -110,6 +115,8 @@ public class Employee {
 	}
 
 	public void setJobYears(int jobYears) {
+		if (jobYears < 0)
+			throw new IllegalArgumentException("Invalid input");
 		this.jobYears = jobYears;
 	}
 
@@ -118,6 +125,17 @@ public class Employee {
 	}
 
 	public void setEmail(String email) {
+		if (email == null || email.isEmpty())
+			throw new IllegalArgumentException("Invalid input");
+
+		String emailRegex = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$";
+		Pattern pattern = Pattern.compile(emailRegex);
+		Matcher matcher = pattern.matcher(email);
+
+		if (!matcher.matches()) {
+			throw new IllegalArgumentException("Invalid email format");
+		}
+
 		this.email = email;
 	}
 
