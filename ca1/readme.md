@@ -1,10 +1,50 @@
 DevOps Technical Report | Class Assignment 1
 ============================================
 
-Part 1 - With git commands, add a new feature to a React.js and Spring Data REST Application using only the master branch
+Table of Contents
+-----------------
+1. [Introduction](#introduction)
+2. [Part 1 - With Git commands, add a new feature to a React.js and Spring Data REST 
+Application using only the master branch](#part-1---with-git-commands-add-a-new-feature-to-a-reactjs-and-spring-data-rest-application-using-only-the-master-branch)
+3. [Part 2 - With Git commands, add a new feature to a React.js and Spring Data REST 
+Application using branches](#part-2---with-git-commands-add-a-new-feature-to-a-reactjs-and-spring-data-rest-application-using-branches)
+4. [Part 3 - With Subversion commands, add a new feature to a React.js and 
+Spring Data REST Application using branches](#part-3---part-3---with-subversion-commands-add-a-new-feature-to-a-reactjs-and-spring-data-rest-application-using-branches)
+5. [Conclusion](#conclusion)
+
+
+Introduction
+------------
+In this assignment, we will go through the process of adding new software features,
+fixing bugs, and manage the development process effectively using Git and 
+Subversion (SVN) for version control.
+
+The assignment is divided into three parts, each focusing on different aspects of 
+software development and version control:
+
+1. **Part 1: Adding Features with Git**
+   * We will learn how to add new features to the application using only the master 
+   branch in Git.
+   * Tasks include setting up the project, version tagging, feature development,
+   and final tagging.
+
+2. **Part 2: Feature Development with Git Branches**
+   * We will explore the use of Git branches to develop and merge new features and 
+   bug fixes. 
+   * Tasks include creating feature branches, implementing new features, fixing bugs,
+   and merging changes back to the master branch.
+
+3. **Part 3: Version Control with Subversion**
+   * We will transition to Subversion (SVN) and repeat the process of adding features
+   to the application. 
+   * Tasks include repository setup, feature development, version tagging, 
+   and conclusion.
+
+
+Part 1 - With Git commands, add a new feature to a React.js and Spring Data REST Application using only the master branch
 ---------------------------------------------------------------------------------------------------------------
 In the firs part of this report, we will walk through the steps to add a new feature to 
-an existing React.js and Spring Data REST application, using git commands 
+an existing React.js and Spring Data REST application, using Git commands 
 only in the main branch (master).
 The feature we will add is the ability to record the years of experience 
 of employees in the company. We will follow a step-by-step approach to 
@@ -68,7 +108,7 @@ From the analysis, the steps to implement the new feature are as follows:
    * Commit the changes and push them to the server.
 ```bash 
    mkdir ca1
-   cp -r TutorialReactSpringApp/* ca1/
+   cp -r c/users/user/Documents/TutorialReactSpringApp/* ca1/
    cd ca1
    git init
    git add .
@@ -406,12 +446,14 @@ and debug the server and client parts of the solution.
   git push origin ca1-part1
 ```
 
-Part 2 - With git commands, add a new feature to a React.js and Spring Data REST Application using branches
+
+Part 2 - With Git commands, add a new feature to a React.js and Spring Data REST Application using branches
 ---------------------------------------------------------------------------------------------------------------
 In the second part of this report, we will walk through the steps to add a 
 new feature to an existing React.js and Spring Data REST application,
-using git commands and branches to manage the development process.
-We will be adding an email field to the Employee entity.
+using Git commands and branches to manage the development process.
+We will be adding an email field to the Employee entity, and then fixing a bug 
+related to invalid email addresses.
 We will follow a step-by-step approach to analyze, design, and implement
 this feature.
 
@@ -808,3 +850,155 @@ From the analysis, the steps to implement the new feature are as follows:
   git tag ca1-part2
   git push origin ca1-part1
 ```
+
+
+Part 3 - Part 3 - With Subversion commands, add a new feature to a React.js and Spring Data REST Application using branches
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+In the third part of this report, we will outline the process of adding a new feature
+to an existing React.js and Spring Data REST application using Subversion (SVN) for 
+version control, as an alternative to Git, with branches for development and integration.
+We will be introducing the feature to record the years of experience of employees 
+in the company. We will follow a structured approach to analyze, design, and implement 
+this feature.
+
+### Requirements
+1. Set up a new repository for the project named "CA1" in Subversion.
+2. Import the existing codebase of the React.js and Spring Data REST application into the repository.
+3. Implement version tagging using a pattern like: major.minor.revision (e.g., 1.1.0).
+    * Tag the initial version as v1.1.0.
+4. Develop the new feature in a feature branch named "years-of-experience".
+    * Add support for the new field named "jobYears" to the Employee entity.
+    * Include unit tests for creating employees and validating their attributes, ensuring only integer values are allowed for the new field.
+    * Debug both server and client components.
+    * After completion and testing, merge the feature branch back to the trunk and create a new tag, such as v1.2.0.
+5. Mark the repository with the tag "ca1-part3" at the end of the assignment.
+6. Utilize issue tracking in Subversion to manage tasks and updates.
+
+### Analysis
+Before proceeding with implementation, let's analyze the requirements and identify the key components and tasks involved:
+
+1. **Repository Setup**: Create a new repository and import the existing codebase.
+2. **Version Tagging**: Tag the initial version as v1.1.0.
+3. **New Feature Development**:
+   * Create a feature branch named "years-of-experience".
+   * Implement the new field "jobYears" in the Employee entity.
+   * Write unit tests to validate employee creation and attribute validation.
+   * Debug server and client components.
+   * Merge the feature branch to the trunk and tag the new version as v1.2.0.
+4. **Final Tagging**: Tag the repository as "ca1-part3" at the conclusion of the assignment.
+
+### Design
+Based on the analysis, here's the design for implementing the new feature:
+
+1. **Create Feature Branch**: Establish a feature branch named "years-of-experience".
+2. **Modify Entity**: Introduce the "jobYears" field to the Employee entity.
+3. **Unit Testing**: Develop unit tests to ensure proper functionality and validation 
+of the new field.
+4. **Debugging**: Address any issues found in both server and client components.
+5. **Merge to Trunk**: Merge the feature branch into the trunk once development and 
+testing are complete.
+6. **Version Tagging**: Tag the merged trunk as v1.2.0 to mark the completion of the 
+new feature.
+7. **Final Tagging**: Tag the repository as "ca1-part3" to signify the completion of 
+the assignment.
+
+This structured approach ensures systematic development and integration of the 
+new feature while maintaining version control and tracking progress effectively 
+using Subversion.
+
+### Implementation
+From the analysis, the steps to implement the new feature are as follows:
+
+1. **Repository Setup**:
+   * Create a new repository named "ca1" in Subversion.
+   * Import the existing codebase of the React.js and Spring Data REST application 
+   into the repository.
+```bash
+   svnadmin create ca1
+   svn import c/users/user/Documents/TutorialReactSpringApp/ ca1 -m "Initial import"
+```
+
+2. **Version Tagging**:
+   * Tag the initial version as v1.1.0.
+```bash
+   svn copy ^/trunk ^/tags/v1.1.0 -m "Tagging initial version as v1.1.0"
+```
+
+3. **New Feature Development**:
+    * Create a feature branch named "years-of-experience".
+    * Switch the new branch and implement the new feature.
+ ```bash
+    svn copy ^/trunk ^/branches/years-of-experience -m "Creating feature branch for years-of-experience"
+    svn switch ^/branches/years-of-experience
+ ```
+The remaining steps for modifying the entity, implementing unit tests, and debugging, 
+are the same as in Part 1 of this report, so they won't be represented here.
+
+4. **Merge to Trunk and tagging**:
+   * Once the feature development is complete and tested, merge the feature branch 
+   to the trunk.
+```bash
+   # Switch to the trunk to merge the feature branch
+   svn switch ^/trunk
+   svn merge ^/branches/years-of-experience
+   svn commit -m "Merged years-of-experience feature branch to trunk"
+   
+    # Tag the new version
+   svn copy ^/trunk ^/tags/v1.2.0 -m "Tagging new version as v1.2.0"
+```
+
+5. **Final Tagging**:
+   * Mark the repository with the tag "ca1-part3" at the end of the assignment.
+```bash
+   svn copy ^/trunk ^/tags/ca1-part3 -m "Tagging repository as ca1-part3"
+```
+
+Conclusion
+-----------
+In this report, we have detailed the process of adding new features to an existing 
+React.js and Spring Data REST application using both Git and Subversion for version 
+control. Through three parts, we analyzed, designed, and implemented the addition of 
+features such as recording employee years of experience and email fields, as well as 
+addressing bugs related to invalid email addresses.
+
+Both Git and Subversion offer powerful version control capabilities, but each comes
+with its own set of advantages and disadvantages.
+
+### Git
+#### Advantages:
+1. **Distributed Version Control**: Git operates on a distributed model, allowing for 
+flexible workflows and offline access.
+2. **Branching and Merging**: Git's branching and merging capabilities are robust, 
+enabling efficient feature development and collaboration.
+3. **Fast Performance**: Git is known for its speed, making operations like commits, 
+merges, and branching quick and responsive.
+
+#### Disadvantages:
+1. **Steep Learning Curve**: Git has a steep learning curve, particularly for beginners, 
+due to its extensive feature set and complex terminology.
+2. **Complexity of Commands**: Git commands can be verbose and complex, requiring users 
+to memorize or frequently reference documentation.
+
+### Subversion
+#### Advantages:
+1. **Centralized Model**: Subversion follows a centralized model, making it easier to 
+understand and manage for users accustomed to traditional version control systems.
+2. **Simplicity**: Subversion's commands are often simpler and more intuitive compared 
+to Git, making it easier for new users to get started.
+3. **Strong History Tracking**: Subversion provides strong history tracking capabilities,
+allowing users to easily trace changes and revisions.
+
+#### Disadvantages:
+1. **Single Point of Failure**: Subversion's centralized model can become a single 
+point of failure if the central repository goes down or becomes inaccessible.
+2. **Slower Performance**: Subversion can be slower than Git, especially for operations
+like branching and merging, as it relies on server communication for many actions.
+
+In conclusion, both Git and Subversion have their strengths and weaknesses.
+Git's distributed model and powerful branching make it well-suited for complex 
+development workflows and large teams, despite its learning curve. 
+
+On the other hand, Subversion's simplicity and centralized model make it a more 
+accessible choice for smaller teams or those transitioning from traditional version 
+control systems, although it may lack some of the advanced features and performance 
+optimizations of Git.
