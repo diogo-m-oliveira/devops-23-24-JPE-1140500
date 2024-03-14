@@ -725,6 +725,9 @@ From the analysis, the steps to implement the new feature are as follows:
   git push origin v1.3.0
 ```
 
+I should have used the command "git merge --no-ff". This way, Git would create a new commit object, even if a fast forward merge is possible.
+This will preserve the information that a feature branch once existed.
+
 3. **Create a branch for bug fixing**:
    * Create a branch named "fix-invalid-email" and switch to it.
 ```bash
@@ -843,6 +846,8 @@ From the analysis, the steps to implement the new feature are as follows:
   git tag v1.3.1
   git push origin v1.3.1
 ```
+I should have used the command "git merge --no-ff". This way, Git would create a new commit object, even if a fast forward merge is possible.
+This will preserve the information that a feature branch once existed.
 
 4. **Final Tagging**:
 * Mark the repository with the tag "ca1-part2" at the end of the assignment.
