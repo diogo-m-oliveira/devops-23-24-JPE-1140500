@@ -115,3 +115,5 @@ fabric.properties
 .idea/**/azureSettings.xml
 
 # End of https://www.toptal.com/developers/gitignore/api/intellij
+.idea/copilot/chatSessions/00000000000.xd
+.idea/copilot/chatSessions/xd.lck
