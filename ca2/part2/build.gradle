@@ -13,6 +13,13 @@ java {
 	sourceCompatibility = '17'
 }
 
+frontend {
+	nodeVersion = "16.20.2"
+	assembleScript = "run build"
+	cleanScript = "run clean"
+	checkScript = "run check"
+}
+
 repositories {
 	mavenCentral()
 }
