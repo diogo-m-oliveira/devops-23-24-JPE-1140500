@@ -1,6 +1,6 @@
 # DevOps Technical Report | Class Assignment 3 - Part 1
 
-### Part 1 - Virtualization with Vagrant
+### Part 1 - Virtualization with VirtualBox
 
 ### Introduction
 
@@ -21,7 +21,6 @@ The purpose of this part of the assignment is to practice with VirtualBox using 
 5. Execute the server inside the VM and the client in the host machine.
 
 ### Implementation
-
 1. Install a new VM with Ubuntu.
 
 2. Clone your own repository inside the VM.

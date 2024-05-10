@@ -9,3 +9,5 @@ Class Assignment 2 - Part 2: [CA2  Part 2](/ca2/part2/readmeCA2part2.md)
 ------------------
 Class Assignment 3 - Part 1: [CA3  Part 1](/ca3/part1/readmeCA3part1.md)
 ------------------
+Class Assignment 3 - Part 2: [CA3  Part 2](/ca3/part2/readmeCA3part2.md)
+------------------
