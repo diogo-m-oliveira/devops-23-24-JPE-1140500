@@ -1,0 +1,18 @@
+# Start from a Java image.
+FROM gradle:jdk21
+
+# Set the working directory.
+WORKDIR /app
+
+# Copy the jar file into the Docker image.
+COPY . .
+
+# Build the application.
+RUN gradle clean build
+
+# Expose the port.
+EXPOSE 59001
+
+# Run the jar file and the runServer task.
+CMD ["sh", "-c", "java -jar build/libs/*.jar & gradle runServer"]
+

@@ -104,7 +104,7 @@ task runClient(type:JavaExec, dependsOn: classes){
 
    drun
 
-    args '162.168.56.5', '59001'
+    args '192.168.56.5', '59001'
 }
 ```
     * Execute the client
