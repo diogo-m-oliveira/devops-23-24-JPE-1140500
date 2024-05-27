@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a86a7a38-ed6a-4583-9938-4426a73617a9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../ca4/part2/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ca4/part2/Dockerfile_db" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ca4/part2/Dockerfile_web" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ca4/part2/app_frontend.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ca4/part2/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ca4/part2/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ca4/part2/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ca4/part2/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ca4/part2/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ca4/part2/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ca4/part2/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ca4/part2/readmeCA2part2.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ca4/part2/settings.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ca4/part2/src/main/java/com/greglturnquist/payroll/DatabaseLoader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ca4/part2/src/main/java/com/greglturnquist/payroll/Employee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ca4/part2/src/main/java/com/greglturnquist/payroll/EmployeeRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ca4/part2/src/main/java/com/greglturnquist/payroll/HomeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ca4/part2/src/main/java/com/greglturnquist/payroll/ReactAndSpringDataRestApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ca4/part2/src/main/js/api/uriListConverter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ca4/part2/src/main/js/api/uriTemplateInterceptor.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ca4/part2/src/main/js/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ca4/part2/src/main/js/client.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ca4/part2/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ca4/part2/src/main/resources/static/main.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ca4/part2/src/main/resources/templates/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ca4/part2/src/test/java/com/greglturnquist/payroll/EmployeeTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ca4/part2/webpack.config.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "diogo-m-oliveira"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/diogo-m-oliveira/devops-23-24-JPE-1140500.git",
+    "accountId": "efc4df14-0133-4f36-a3d9-f624da71a12b"
+  }
+}]]></component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 5
+}]]></component>
+  <component name="ProjectId" id="2gp2eWAWJRUJqjIlNZ1xORBm4qA" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a86a7a38-ed6a-4583-9938-4426a73617a9" name="Changes" comment="" />
+      <created>1716380293864</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1716380293864</updated>
+      <workItem from="1716380295019" duration="6000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
