@@ -58,9 +58,11 @@ docker build -f Dockerfile_v1 -t ca4-part1.1 .
 gradle runClient
 ```
 * Server running Version 1
+
 ![Server running V1](serverRunningV1.png)
 
 * Chat running Version 1
+
 ![Chat running V1](chatRunningV1.png)
 
 6. Tag the image and publish it in docker hub
