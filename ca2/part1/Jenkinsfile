@@ -1,0 +1,31 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                echo 'Checking out the code from the repository'
+                git 'https://github.com/diogo-m-oliveira/devops-23-24-JPE-1140500/tree/main/ca2/part1'
+            }
+        }
+        stage('Assemble') {
+            steps {
+                echo 'Assembling...'
+                sh './gradlew clean assemble'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing...'
+                sh './gradlew test'
+                junit 'build/test-results/test/*.xml'
+            }
+        }
+        stage('Archive') {
+            steps {
+                echo 'Archiving...'
+                archiveArtifacts 'build/libs/*.jar'
+            }
+        }
+    }
+}
