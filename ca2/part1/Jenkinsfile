@@ -12,6 +12,7 @@ pipeline {
             steps {
                 echo 'Assembling...'
                 dir('ca2/part1') {
+                    sh 'chmod +x ./gradlew'
                     sh './gradlew clean assemble'
                 }
             }
@@ -19,18 +20,18 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing...'
-                 dir('ca2/part1') {
+                dir('ca2/part1') {
                     sh './gradlew test'
                     junit 'build/test-results/test/*.xml'
-                 }
+                }
             }
         }
         stage('Archive') {
             steps {
                 echo 'Archiving...'
-                 dir('ca2/part1') {
-                   archiveArtifacts 'build/libs/*.jar'
-                 }
+                dir('ca2/part1') {
+                    archiveArtifacts 'build/libs/*.jar'
+                }
             }
         }
     }
