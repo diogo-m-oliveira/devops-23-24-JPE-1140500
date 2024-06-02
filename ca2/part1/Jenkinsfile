@@ -5,7 +5,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 echo 'Checking out the code from the repository'
-                git 'https://github.com/diogo-m-oliveira/devops-23-24-JPE-1140500/tree/main/ca2/part1'
+                git branch: 'main', url: 'https://github.com/diogo-m-oliveira/devops-23-24-JPE-1140500.git'
             }
         }
         stage('Assemble') {
