@@ -1,0 +1,84 @@
+pipeline {
+    agent any
+
+    environment {
+        // Define Docker Hub credentials ID as configured in Jenkins credentials
+        DOCKERHUB_CREDENTIALS = 'sabesquemeoboda'
+        // Define the Docker image name
+        IMAGE_NAME = "image-generated-with-jenkins"
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                echo 'Checking out the code from the repository'
+                git branch: 'main', url: 'https://github.com/diogo-m-oliveira/devops-23-24-JPE-1140500.git'
+            }
+        }
+
+        stage('Assemble') {
+            steps {
+                echo 'Assembling...'
+                dir('ca2/part2') {
+                    sh 'chmod +x ./gradlew'
+                    sh './gradlew clean assemble -x test'
+                }
+            }
+            post {
+                success {
+                    // Archive the build artifacts
+                    archiveArtifacts artifacts: '**/build/libs/*.jar', allowEmptyArchive: true
+                }
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo 'Testing...'
+                dir('ca2/part2') {
+                    sh './gradlew test'
+                    junit '**/build/test-results/test/*.xml'
+                }
+            }
+        }
+
+        stage('Javadoc') {
+            steps {
+                echo 'Generating Javadoc...'
+                dir('ca2/part2') {
+                    sh './gradlew javadoc'
+                    archiveArtifacts artifacts: '**/build/docs/javadoc/**', allowEmptyArchive: true
+                    publishHTML target: [
+                        allowMissing: false,
+                        alwaysLinkToLastBuild: true,
+                        keepAll: true,
+                        reportDir: 'build/docs/javadoc',
+                        reportFiles: 'index.html',
+                        reportName: 'Javadoc Report'
+                    ]
+                }
+            }
+        }
+
+        stage('Archive') {
+            steps {
+                echo 'Archiving...'
+                dir('ca2/part2') {
+                    archiveArtifacts artifacts: '**/build/libs/*.jar', allowEmptyArchive: true
+                }
+            }
+        }
+
+        stage('Publish Image') {
+            steps {
+                script {
+                    echo 'Publishing Docker image...'
+                    docker.withRegistry('https://registry.hub.docker.com', DOCKERHUB_CREDENTIALS) {
+                        def dockerImage = docker.build(IMAGE_NAME + ":${env.BUILD_NUMBER}", './docker')
+                        dockerImage.push()
+                    }
+                }
+            }
+        }
+    }
+}
