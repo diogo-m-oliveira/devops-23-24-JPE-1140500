@@ -11,7 +11,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-            cleanWs()
+                cleanWs()
                 echo 'Checking out the code from the repository'
                 git branch: 'main', url: 'https://github.com/diogo-m-oliveira/devops-23-24-JPE-1140500.git'
             }
@@ -19,10 +19,11 @@ pipeline {
 
         stage('Assemble') {
             steps {
-            cleanWs()
+                cleanWs()
                 echo 'Assembling...'
                 dir('ca2/part2') {
                     script {
+                        // Ensure the Gradle Wrapper is executable (Unix) or available (Windows)
                         if (isUnix()) {
                             sh 'chmod +x ./gradlew'
                             sh './gradlew clean assemble -x test'
@@ -42,38 +43,43 @@ pipeline {
 
         stage('Test') {
             steps {
-            cleanWs()
+                cleanWs()
                 echo 'Testing...'
                 dir('ca2/part2') {
                     script {
+                        // Ensure the Gradle Wrapper is executable (Unix) or available (Windows)
                         if (isUnix()) {
                             sh './gradlew test'
                         } else {
                             bat 'gradlew.bat test'
                         }
                     }
+                    // Publish JUnit test results
                     junit '**/build/test-results/test/*.xml'
                 }
             }
             post {
-                            always {
-                                junit '**/build/test-results/test/TEST-*.xml'
-                            }
-                        }
+                always {
+                    // Archive the JUnit test results
+                    junit '**/build/test-results/test/TEST-*.xml'
+                }
+            }
         }
 
         stage('Javadoc') {
             steps {
-            cleanWs()
+                cleanWs()
                 echo 'Generating Javadoc...'
                 dir('ca2/part2') {
                     script {
+                        // Ensure the Gradle Wrapper is executable (Unix) or available (Windows)
                         if (isUnix()) {
                             sh './gradlew javadoc'
                         } else {
                             bat 'gradlew.bat javadoc'
                         }
                     }
+                    // Archive and publish Javadoc
                     archiveArtifacts artifacts: '**/build/docs/javadoc/**', allowEmptyArchive: true
                     publishHTML target: [
                         allowMissing: false,
@@ -85,14 +91,14 @@ pipeline {
                     ]
                 }
             }
-
         }
 
         stage('Archive') {
             steps {
-            cleanWs()
+                cleanWs()
                 echo 'Archiving...'
                 dir('ca2/part2') {
+                    // Archive build artifacts
                     archiveArtifacts artifacts: '**/build/libs/*.jar', allowEmptyArchive: true
                 }
             }
@@ -100,11 +106,11 @@ pipeline {
 
         stage('Publish Image') {
             steps {
-            cleanWs()
+                cleanWs()
+                echo 'Publishing Docker image...'
                 script {
-                    echo 'Publishing Docker image...'
                     docker.withRegistry('https://registry.hub.docker.com', DOCKERHUB_CREDENTIALS) {
-                        def dockerImage = docker.build(IMAGE_NAME + ":${env.BUILD_NUMBER}", '--progress=plain ca5/part2/docker')
+                        def dockerImage = docker.build("${IMAGE_NAME}:${env.BUILD_NUMBER}", '--progress=plain ca5/part2/docker')
                         dockerImage.push()
                     }
                 }
@@ -113,8 +119,8 @@ pipeline {
     }
 
     post {
-            always {
-                cleanWs()
-            }
+        always {
+            cleanWs()
         }
+    }
 }
