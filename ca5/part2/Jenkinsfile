@@ -105,7 +105,7 @@ pipeline {
 
         stage('Publish Image') {
             steps {
-                
+
                 echo 'Publishing Docker image...'
                 script {
                     docker.withRegistry('https://registry.hub.docker.com', DOCKERHUB_CREDENTIALS) {
