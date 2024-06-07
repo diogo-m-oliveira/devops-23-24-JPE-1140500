@@ -92,7 +92,7 @@ pipeline {
                 script {
                     echo 'Publishing Docker image...'
                     docker.withRegistry('https://registry.hub.docker.com', DOCKERHUB_CREDENTIALS) {
-                        def dockerImage = docker.build(IMAGE_NAME + ":${env.BUILD_NUMBER}", './docker')
+                        def dockerImage = docker.build(IMAGE_NAME + ":${env.BUILD_NUMBER}", 'ca2/part2/docker')
                         dockerImage.push()
                     }
                 }
