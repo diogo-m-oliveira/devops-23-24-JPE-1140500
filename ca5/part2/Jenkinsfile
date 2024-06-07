@@ -108,7 +108,7 @@ pipeline {
                 echo 'Publishing Docker image...'
                 script {
                     docker.withRegistry('https://registry.hub.docker.com', DOCKERHUB_CREDENTIALS) {
-                        def dockerImage = docker.build("${IMAGE_NAME}:${env.BUILD_NUMBER}", '--progress=plain ca5/part2/docker')
+                        def dockerImage = docker.build("${IMAGE_NAME}:${env.BUILD_NUMBER}", '--progress=plain ca2/part2/docker')
                         dockerImage.push()
                     }
                 }
