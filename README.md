@@ -15,3 +15,5 @@ Class Assignment 4 - Part 1: [CA4  Part 1](/ca4/part1/readmeCA4part1.md)
 ------------------
 Class Assignment 4 - Part 2: [CA4  Part 2](/ca4/part2/readmeCA4part2.md)
 ------------------
+Class Assignment 5 : [CA5](/ca5/readmeCA5.md)
+------------------
