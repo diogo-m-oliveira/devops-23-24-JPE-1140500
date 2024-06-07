@@ -20,8 +20,14 @@ pipeline {
             steps {
                 echo 'Assembling...'
                 dir('ca2/part2') {
-                    sh 'chmod +x ./gradlew'
-                    sh './gradlew clean assemble -x test'
+                    script {
+                        if (isUnix()) {
+                            sh 'chmod +x ./gradlew'
+                            sh './gradlew clean assemble -x test'
+                        } else {
+                            bat 'gradlew.bat clean assemble -x test'
+                        }
+                    }
                 }
             }
             post {
@@ -36,7 +42,13 @@ pipeline {
             steps {
                 echo 'Testing...'
                 dir('ca2/part2') {
-                    sh './gradlew test'
+                    script {
+                        if (isUnix()) {
+                            sh './gradlew test'
+                        } else {
+                            bat 'gradlew.bat test'
+                        }
+                    }
                     junit '**/build/test-results/test/*.xml'
                 }
             }
@@ -46,7 +58,13 @@ pipeline {
             steps {
                 echo 'Generating Javadoc...'
                 dir('ca2/part2') {
-                    sh './gradlew javadoc'
+                    script {
+                        if (isUnix()) {
+                            sh './gradlew javadoc'
+                        } else {
+                            bat 'gradlew.bat javadoc'
+                        }
+                    }
                     archiveArtifacts artifacts: '**/build/docs/javadoc/**', allowEmptyArchive: true
                     publishHTML target: [
                         allowMissing: false,
