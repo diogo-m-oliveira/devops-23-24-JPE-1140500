@@ -5,7 +5,7 @@ pipeline {
         // Define Docker Hub credentials ID as configured in Jenkins credentials
         DOCKERHUB_CREDENTIALS = 'sabesquemeoboda'
         // Define the Docker image name
-        IMAGE_NAME = "image-generated-with-jenkins"
+        IMAGE_NAME = "sabesquemeoboda/image-generated-with-jenkins"
     }
 
     stages {
