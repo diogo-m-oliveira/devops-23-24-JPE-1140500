@@ -11,6 +11,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
+            cleanWs()
                 echo 'Checking out the code from the repository'
                 git branch: 'main', url: 'https://github.com/diogo-m-oliveira/devops-23-24-JPE-1140500.git'
             }
@@ -18,6 +19,7 @@ pipeline {
 
         stage('Assemble') {
             steps {
+            cleanWs()
                 echo 'Assembling...'
                 dir('ca2/part2') {
                     script {
@@ -40,6 +42,7 @@ pipeline {
 
         stage('Test') {
             steps {
+            cleanWs()
                 echo 'Testing...'
                 dir('ca2/part2') {
                     script {
@@ -61,6 +64,7 @@ pipeline {
 
         stage('Javadoc') {
             steps {
+            cleanWs()
                 echo 'Generating Javadoc...'
                 dir('ca2/part2') {
                     script {
@@ -86,6 +90,7 @@ pipeline {
 
         stage('Archive') {
             steps {
+            cleanWs()
                 echo 'Archiving...'
                 dir('ca2/part2') {
                     archiveArtifacts artifacts: '**/build/libs/*.jar', allowEmptyArchive: true
@@ -95,6 +100,7 @@ pipeline {
 
         stage('Publish Image') {
             steps {
+            cleanWs()
                 script {
                     echo 'Publishing Docker image...'
                     docker.withRegistry('https://registry.hub.docker.com', DOCKERHUB_CREDENTIALS) {
