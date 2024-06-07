@@ -19,8 +19,7 @@ pipeline {
 
         stage('Assemble') {
             steps {
-                cleanWs()
-                echo 'Assembling...'
+                         echo 'Assembling...'
                 dir('ca2/part2') {
                     script {
                         // Ensure the Gradle Wrapper is executable (Unix) or available (Windows)
@@ -43,7 +42,7 @@ pipeline {
 
         stage('Test') {
             steps {
-                cleanWs()
+
                 echo 'Testing...'
                 dir('ca2/part2') {
                     script {
@@ -68,7 +67,7 @@ pipeline {
 
         stage('Javadoc') {
             steps {
-                cleanWs()
+
                 echo 'Generating Javadoc...'
                 dir('ca2/part2') {
                     script {
@@ -95,7 +94,7 @@ pipeline {
 
         stage('Archive') {
             steps {
-                cleanWs()
+
                 echo 'Archiving...'
                 dir('ca2/part2') {
                     // Archive build artifacts
@@ -106,7 +105,7 @@ pipeline {
 
         stage('Publish Image') {
             steps {
-                cleanWs()
+                
                 echo 'Publishing Docker image...'
                 script {
                     docker.withRegistry('https://registry.hub.docker.com', DOCKERHUB_CREDENTIALS) {
