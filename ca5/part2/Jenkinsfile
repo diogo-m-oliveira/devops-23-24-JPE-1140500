@@ -52,6 +52,11 @@ pipeline {
                     junit '**/build/test-results/test/*.xml'
                 }
             }
+            post {
+                            always {
+                                junit '**/build/test-results/test/TEST-*.xml'
+                            }
+                        }
         }
 
         stage('Javadoc') {
@@ -76,6 +81,7 @@ pipeline {
                     ]
                 }
             }
+
         }
 
         stage('Archive') {
@@ -92,11 +98,17 @@ pipeline {
                 script {
                     echo 'Publishing Docker image...'
                     docker.withRegistry('https://registry.hub.docker.com', DOCKERHUB_CREDENTIALS) {
-                        def dockerImage = docker.build(IMAGE_NAME + ":${env.BUILD_NUMBER}", 'ca5/part2/docker')
+                        def dockerImage = docker.build(IMAGE_NAME + ":${env.BUILD_NUMBER}", '--progress=plain ca5/part2/docker')
                         dockerImage.push()
                     }
                 }
             }
         }
     }
+
+    post {
+            always {
+                cleanWs()
+            }
+        }
 }
