@@ -12,8 +12,14 @@ pipeline {
             steps {
                 echo 'Assembling...'
                 dir('ca2/part1') {
-                    sh 'chmod +x ./gradlew'
-                    sh './gradlew clean assemble'
+                    script {
+                        if (isUnix()) {
+                            sh 'chmod +x ./gradlew'
+                            sh './gradlew clean assemble'
+                        } else {
+                            bat 'gradlew.bat clean assemble'
+                        }
+                    }
                 }
             }
         }
@@ -21,7 +27,13 @@ pipeline {
             steps {
                 echo 'Testing...'
                 dir('ca2/part1') {
-                    sh './gradlew test'
+                    script {
+                        if (isUnix()) {
+                            sh './gradlew test'
+                        } else {
+                            bat 'gradlew.bat test'
+                        }
+                    }
                     junit 'build/test-results/test/*.xml'
                 }
             }
