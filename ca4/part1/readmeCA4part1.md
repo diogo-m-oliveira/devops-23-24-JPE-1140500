@@ -25,7 +25,7 @@ cp -r ca2/part1/* ca4/part1
 ```
 #### Version 1
 
-2. Create a docker image to build the chat server inside the DockerFile.
+2. Create a Dockerfile to build a docker image which will build the chat server
 ```dockerfile
 # Start from a Java image.
 FROM gradle:jdk21
@@ -45,11 +45,11 @@ EXPOSE 59001
 # Run the jar file and the runServer task.
 CMD ["sh", "-c", "java -jar build/libs/*.jar & gradle runServer"]
 ```
-3. Build the Dockerfile
+3. Build the docker image
 ```bash
 docker build -f Dockerfile_v1 -t ca4-part1.1 . 
 ```
-4. Run the Dockerfile
+4. Run the docker image
 ```bash
  docker run -d -p 59001:59001 ca4-part1.1
 ```
@@ -84,7 +84,13 @@ docker push sabesquemeoboda/ca4-part1.1
 
 
 #### Version 2
-1. Create the Version 2:
+
+1. Build the chat server in your host computer
+```bash
+gradle build
+```
+
+2. Create the Version 2 Dockerfile:
 
 ```dockerfile
 # Start from a Java image.
@@ -103,17 +109,17 @@ EXPOSE 59001
 ENTRYPOINT ["java", "-cp", "basic_demo-0.1.0.jar", "basic_demo.ChatServerApp", "59001"]
 ```
 
-2. Build the Dockerfile
+3. Build the docker image
 ```bash
 docker build -f Dockerfile_v2 -t ca4-part1.2 .
 ```
 
-3. Run the Dockerfile
+4. Run the docker image
 ```bash
 docker run -d -p 59001:59001 ca4-part1.2
 ```
 
-4. Run the client side in your host machine
+5. Run the client side in your host machine
 ```bash
 gradle runClient
 ```

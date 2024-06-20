@@ -92,8 +92,13 @@ zipStoreBase=GRADLE_USER_HOME
 zipStorePath=wrapper/dists
 distributionUrl=https\://services.gradle.org/distributions/gradle-8.6-bin.zip
 ```
+2. Start Jenkins (if installed in Windows)
+```bash
+cd [Jenkins War File Directory]
+java -jar jenkins.war
+```
 
-2. Create a new pipeline in Jenkins and configure it to use the Jenkinsfile in the repository.
+3. Create a new pipeline in Jenkins and configure it to use the Jenkinsfile in the repository.
     * Go to Jenkins and click on 'New Item'.
     * Enter a name for the pipeline and select 'Pipeline'.
     * In the 'Pipeline' section, select 'Pipeline script from SCM'.
@@ -109,13 +114,13 @@ distributionUrl=https\://services.gradle.org/distributions/gradle-8.6-bin.zip
    
     * Click 'Save' to create the pipeline.
 
-3. Run the pipeline and verify that the stages are executed correctly (console output).
+4. Run the pipeline and verify that the stages are executed correctly (console output).
 
    ![Pipeline_build_Jenkins](images/Pipeline_build_history.png)
 
    ![Pipeline_build_output_Jenkins](images/Pipeline_build_console_output.png)
 
-4. Check the results of the pipeline in Jenkins.
+5. Check the results of the pipeline in Jenkins.
 
    ![Pipeline_results_Jenkins](images/Pipeline_results.png)
 

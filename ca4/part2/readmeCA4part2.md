@@ -193,7 +193,12 @@ The output should show the database file:
 
 ![Database File](images/databaseFile.png)
 
-9. Tag the repository with the tag ca4-part2.
+9. Use the following command to go back to the host machine:
+```bash
+exit
+```
+
+10. Tag the repository with the tag ca4-part2.
 ```bash
 git tag ca4-part2
 git push origin ca4-part2
