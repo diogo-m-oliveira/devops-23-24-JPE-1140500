@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  db:
+    build:
+      context: db
+      dockerfile: Dockerfile
+    ports:
+      - "8082:8082"
+      - "9092:9092"
+    volumes:
+        - h2-data:/opt/h2-data
+        - db-backup:/backup
+
+
+  web:
+    build:
+      context: web
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:h2:tcp://db:9092/./jpadb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+
+volumes:
+  h2-data:
+  db-backup:
